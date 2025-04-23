@@ -9,14 +9,14 @@ const Home = () => {
         <motion.div
           initial={{ opacity: 0, x: -200 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <img src="image.png" alt="" className=' rounded-full' />
+          <img src="image.png" alt="image" className='w-1/2 block rounded-full' />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 200 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.7,  delay: 0.3 }}
         >
           <div className='w-full h-screen p-10 flex justify-center flex-col gap-5 text-right'>
             <div className='text-5xl font-bold tracking-wider'>Hey there! Welcome to my Portfolio</div>

@@ -22,4 +22,5 @@ body{
     font-family: 'poppins', sans-serif;
     padding-left: 100px;
     padding-right: 100px;
+    overflow-x: hidden;
 }
