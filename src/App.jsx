@@ -7,13 +7,13 @@ import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-// import ParticlesBG from './components/ParticlesBG'
+import ParticlesBackground from './components/ParticlesBackground'
 
 const App = () => {
   return (
     <div>
         <Router>
-            {/* <ParticlesBG /> */}
+            <ParticlesBackground />
             <Navbar />
             <Routes>
                 <Route path='/' element={ <Home /> } />
