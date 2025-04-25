@@ -5,58 +5,58 @@ import { Github, ExternalLink, X, ChevronLeft, ChevronRight } from 'lucide-react
 const projectsData = [
   {
     title: "News60",
-    description: "A full-stack e-commerce solution with payment processing and inventory management.",
-    image: "/api/placeholder/400/300",
+    description: "A news aggregator app that provides the latest news from various sources.",
+    image: "../public/news60.png",
     githubLink: "https://github.com/username/ecommerce-platform",
     liveDemo: "https://ecommerce-demo.example.com",
     category: "web",
     featured: true,
     techStack: {
-      frontend: ["React", "Redux", "Tailwind CSS"],
-      backend: ["Node.js", "Express", "MongoDB"],
-      deployment: ["AWS", "Docker"]
+      frontend: ["React", "Tailwind CSS"],
+      backend: ["Node.js", "Express", "Firebase"],
+      deployment: ["Vercel", "Render"]
     }
   },
   {
-    title: "AI Image Generator",
-    description: "An application that uses deep learning to generate unique images based on text prompts.",
-    image: "/api/placeholder/400/300",
+    title: "Career Compass",
+    description: "A web application that helps users find suitable career paths based on their skills and interests.",
+    image: "../public/career_compass.png",
     githubLink: "https://github.com/username/ai-image-generator",
     liveDemo: "https://ai-image-gen.example.com",
     category: "ai",
     featured: true,
     techStack: {
-      frontend: ["React", "Chakra UI"],
-      backend: ["Python", "FastAPI"],
-      ai: ["TensorFlow", "PyTorch", "DALL-E API"]
+      frontend: ["React", "Tailwind"],
+      backend: ["NodeJS", "Firebase"],
+      ai: ["Mistral"]
     }
   },
   {
-    title: "Task Dashboard",
-    description: "A responsive dashboard for team task management with real-time updates.",
-    image: "/api/placeholder/400/300",
+    title: "Bio Care",
+    description: "A responsive website for teaching Biology in a modern and efficient way.",
+    image: "../public/bio_care.png",
     githubLink: "https://github.com/username/task-dashboard",
     liveDemo: "https://task-dashboard.example.com",
     category: "web",
     featured: false,
     techStack: {
-      frontend: ["React", "TypeScript", "Material UI"],
-      backend: ["Firebase"],
-      deployment: ["Vercel"]
+      frontend: ["HTML", "CSS"],
+      backend: ["Express", "MongoDB"],
+      deployment: ["Vercel", "Render"]
     }
   },
   {
-    title: "Sentiment Analysis",
-    description: "A machine learning tool that analyzes sentiment in customer reviews and comments.",
-    image: "/api/placeholder/400/300",
+    title: "Code Reviewer",
+    description: "An AI-powered code review tool that provides suggestions and improvements.",
+    image: "../public/code_reviewer.png",
     githubLink: "https://github.com/username/sentiment-analysis",
     liveDemo: "https://sentiment.example.com",
     category: "ai",
     featured: false,
     techStack: {
-      frontend: ["Vue.js"],
-      backend: ["Python", "Flask"],
-      ai: ["Scikit-learn", "NLTK", "Transformers"]
+      frontend: ["React"],
+      backend: ["NodeJS"],
+      ai: ["Gemini"]
     }
   },
   {
@@ -116,7 +116,7 @@ const Projects = () => {
         setVisibleProjects(projectsData.filter(project => project.category === filter));
       }
       setIsAnimating(false);
-      
+
       // Reset scroll position and update scroll buttons
       if (scrollContainerRef.current) {
         scrollContainerRef.current.scrollLeft = 0;
@@ -134,10 +134,10 @@ const Projects = () => {
   const checkScrollPosition = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      
+
       // Can scroll left if not at the beginning
       setCanScrollLeft(scrollLeft > 0);
-      
+
       // Can scroll right if not at the end (with a small buffer for rounding errors)
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 5);
     }
@@ -150,7 +150,7 @@ const Projects = () => {
       container.addEventListener('scroll', checkScrollPosition);
       // Check initial state
       checkScrollPosition();
-      
+
       return () => {
         container.removeEventListener('scroll', checkScrollPosition);
       };
@@ -182,7 +182,7 @@ const Projects = () => {
 
   // Category label mapper
   const getCategoryLabel = (category) => {
-    switch(category) {
+    switch (category) {
       case 'web': return 'Web Development';
       case 'ai': return 'AI/ML';
       case 'mobile': return 'Mobile';
@@ -204,11 +204,10 @@ const Projects = () => {
           <button
             key={category.id}
             onClick={() => setFilter(category.id)}
-            className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
-              filter === category.id
+            className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${filter === category.id
                 ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                 : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-            }`}
+              }`}
           >
             {category.label}
           </button>
@@ -220,7 +219,7 @@ const Projects = () => {
         {/* Scroll buttons (desktop only) */}
         <div className="hidden md:block">
           {canScrollLeft && (
-            <button 
+            <button
               onClick={scrollLeft}
               className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-10 bg-gray-800 rounded-full p-2 text-white hover:bg-gray-700 transition-colors shadow-lg"
               aria-label="Scroll left"
@@ -229,7 +228,7 @@ const Projects = () => {
             </button>
           )}
           {canScrollRight && (
-            <button 
+            <button
               onClick={scrollRight}
               className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-10 bg-gray-800 rounded-full p-2 text-white hover:bg-gray-700 transition-colors shadow-lg"
               aria-label="Scroll right"
@@ -240,7 +239,7 @@ const Projects = () => {
         </div>
 
         {/* Projects grid/scroll container */}
-        <div 
+        <div
           ref={scrollContainerRef}
           className={`
             md:flex md:space-x-4 md:overflow-x-auto md:pb-4 md:snap-x md:snap-mandatory
@@ -312,6 +311,16 @@ const Projects = () => {
             </button>
             <h3 className="text-2xl font-bold mb-3">{selectedProject.title}</h3>
             <p className="text-sm text-gray-300 mb-4">{selectedProject.description}</p>
+
+            {/* Image in the modal */}
+            <div className="relative mb-4">
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-64 object-cover rounded-lg"
+              />
+            </div>
+
             <div className="flex flex-wrap gap-3 mb-4">
               {Object.entries(selectedProject.techStack).map(([key, value]) => (
                 <div key={key}>
@@ -324,6 +333,7 @@ const Projects = () => {
                 </div>
               ))}
             </div>
+
             <div className="flex gap-4">
               <a href={selectedProject.githubLink} className="text-blue-500 hover:text-blue-400 flex items-center" target="_blank" rel="noopener noreferrer">
                 <Github size={16} className="mr-1" />
