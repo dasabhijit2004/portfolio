@@ -182,7 +182,7 @@ const About = () => {
 
                 {/* Image Section */}
                 <motion.div
-                    className="w-48 h-60 sm:w-56 sm:h-72 md:w-60 md:h-80"
+                    className="w-48 h-60 sm:w-56 sm:h-72 md:w-60 md:h-80 mb-8"  // Ensuring space between image and text
                     initial={{ x: 100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 1 }}
@@ -190,7 +190,7 @@ const About = () => {
                     <img
                         src="./photo.png"
                         alt="Abhijit Das"
-                        className="w-60 object-contain rounded-full shadow-md shadow-blue-400 transform scale-x-[-1] my-5"
+                        className="w-[500px] sm:w-[600px] md:w-[700px] object-contain rounded-full shadow-md shadow-blue-400 transform scale-x-[-1] my-5"
                     />
                 </motion.div>
             </div>

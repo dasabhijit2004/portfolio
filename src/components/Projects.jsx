@@ -4,7 +4,7 @@ import { Github, ExternalLink, X, ChevronLeft, ChevronRight } from 'lucide-react
 // Updated project data with simplified categories
 const projectsData = [
   {
-    title: "E-Commerce Platform",
+    title: "News60",
     description: "A full-stack e-commerce solution with payment processing and inventory management.",
     image: "/api/placeholder/400/300",
     githubLink: "https://github.com/username/ecommerce-platform",

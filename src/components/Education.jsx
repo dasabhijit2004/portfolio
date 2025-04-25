@@ -6,7 +6,7 @@ const educationData = [
   {
     title: "BTech in CSE",
     institution: "Academy of Technology, Hooghly",
-    year: "2024 - 2026",
+    year: "2022 - 2026",
     side: "left",
   },
   {
@@ -79,8 +79,22 @@ const Education = () => {
           return (
             <motion.div
               key={index}
-              initial={isMobile ? { y: 50, opacity: 0 } : { x: isLeft ? -100 : 100, opacity: 0 }}
-              whileInView={isMobile ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 }}
+              initial={
+                isMobile
+                  ? { y: 50, opacity: 0 }
+                  : {
+                      x: isLeft ? -100 : 100, // Coming from left or right on larger screens
+                      opacity: 0,
+                    }
+              }
+              whileInView={
+                isMobile
+                  ? { y: 0, opacity: 1 }
+                  : {
+                      x: 0, // Reset position when in view for larger screens
+                      opacity: 1,
+                    }
+              }
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className={`w-full flex flex-col md:flex-row items-center ${isLeft ? "md:justify-start" : "md:justify-end"

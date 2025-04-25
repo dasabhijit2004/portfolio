@@ -17,7 +17,7 @@ const Navbar = () => {
     return (
         <nav className="fixed top-0 w-full z-50 bg-[#050414] text-white px-6 md:px-20 py-4 shadow">
             <div className="flex justify-between items-center">
-                <div className="text-2xl font-bold">My Portfolio</div>
+                <div className="text-2xl font-bold">MyPortfolio</div>
 
                 {/* Desktop Links */}
                 <ul className="hidden md:flex space-x-10">

@@ -7,10 +7,8 @@ import {
   SiHtml5, SiCss3, SiJavascript, SiReact, SiNodedotjs, SiExpress, SiMongodb,
   SiFirebase, SiMysql, SiPython, SiC, SiCplusplus, SiVercel,
   SiBootstrap, SiTailwindcss, SiFigma, SiAdobe, SiGit, SiGithub, SiPostman,
-  SiNetlify,
-  SiRender
+  SiNetlify, SiRender
 } from "react-icons/si";
-
 import { FaJava } from "react-icons/fa";
 
 // Icon mapping
@@ -104,7 +102,10 @@ const SkillProgress = ({ name, percent, color }) => {
   }, [isVisible, percent]);
 
   return (
-    <div className="flex flex-col items-center space-y-2" ref={skillRef}>
+    <div
+      className="flex flex-col items-center space-y-2 transform transition-all duration-500 ease-out opacity-0 animate-fade-slide-up"
+      ref={skillRef}
+    >
       <div className="w-20 h-20 bg-[#111132] rounded-full shadow-lg p-2">
         <CircularProgressbarWithChildren
           value={value}
@@ -125,7 +126,6 @@ const SkillProgress = ({ name, percent, color }) => {
 };
 
 // Main component for skills
-// Main component for skills
 const Skills = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -135,46 +135,26 @@ const Skills = () => {
   return (
     <div className="min-h-screen bg-[#050414] text-white px-4 py-20" id="skills">
       <h2 className="text-4xl font-bold text-center mb-16">My Skills</h2>
-      <div className="text-center mb-10">
-        <button
-          onClick={() => setSelectedCategory("All")}
-          className={`px-4 py-2 rounded mr-4 mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "All" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
-        >
-          All
-        </button>
-        <button
-          onClick={() => setSelectedCategory("Frontend")}
-          className={`px-4 py-2 rounded mr-4 mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "Frontend" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
-        >
-          Frontend
-        </button>
-        <button
-          onClick={() => setSelectedCategory("Backend")}
-          className={`px-4 py-2 rounded mr-4 mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "Backend" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
-        >
-          Backend
-        </button>
-        <button
-          onClick={() => setSelectedCategory("Database")}
-          className={`px-4 py-2 rounded mr-4 mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "Database" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
-        >
-          Database
-        </button>
-        <button
-          onClick={() => setSelectedCategory("Version Control")}
-          className={`px-4 py-2 rounded mr-4 mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "Version Control" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
-        >
-          Version Control
-        </button>
-        <button
-          onClick={() => setSelectedCategory("Tools")}
-          className={`px-4 py-2 rounded mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "Tools" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
-        >
-          Tools
-        </button>
+
+      {/* Category Buttons */}
+      <div className="flex flex-wrap justify-center gap-3 mb-8">
+        {["All", "Frontend", "Backend", "Database", "Version Control", "Tools"].map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 
+              ${selectedCategory === category
+                ? "bg-blue-600 text-white shadow-md shadow-blue-500/50 scale-105"
+                : "bg-[#2c2c4a] text-sm text-gray-400 hover:bg-blue-600 hover:shadow-md hover:scale-105"}
+            `}
+          >
+            {category === "All" ? "All Projects" : category}
+          </button>
+        ))}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 justify-center">
+      {/* Skills Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 justify-center transition-all duration-700">
         {filteredSkills.map((skill, index) => (
           <SkillProgress
             key={index}
@@ -184,9 +164,25 @@ const Skills = () => {
           />
         ))}
       </div>
+
+      {/* Animation Keyframes */}
+      <style>{`
+        @keyframes fadeSlideUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-slide-up {
+          animation: fadeSlideUp 0.7s ease forwards;
+        }
+      `}</style>
     </div>
   );
 };
-
 
 export default Skills;
