@@ -13,17 +13,17 @@ const Footer = () => {
           <address className="not-italic space-y-1 text-gray-400">
             <p>
               Email:{' '}
-              <a href="mailto:youremail@example.com" className="text-blue-400 hover:underline">
-                youremail@example.com
+              <a href="mailto:sadabhjit2004@gmail.com" className="text-blue-400 hover:underline">
+                sadabhjit2004@gmail.com
               </a>
             </p>
             <p>
               Phone:{' '}
-              <a href="tel:+1234567890" className="text-blue-400 hover:underline">
-                +1 (234) 567-890
+              <a href="tel:+919547286280" className="text-blue-400 hover:underline">
+                +91 95472 86280
               </a>
             </p>
-            <p>Location: Your City, Country</p>
+            <p>Location: Hooghly, West Bengal, India</p>
           </address>
         </div>
 

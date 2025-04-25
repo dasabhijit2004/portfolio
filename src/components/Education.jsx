@@ -64,7 +64,7 @@ const Education = () => {
   }, []);
 
   return (
-    <div className="relative px-4 sm:px-6 md:px-20 py-16 bg-[#050414] text-white min-h-screen overflow-hidden">
+    <div className="relative px-4 sm:px-6 md:px-20 py-16 bg-[#050414] text-white min-h-screen overflow-y-hidden" id="education">
       <h2 className="text-4xl font-bold text-center mb-16">Education</h2>
 
       {/* Desktop vertical line */}
@@ -83,7 +83,7 @@ const Education = () => {
                 isMobile
                   ? { y: 50, opacity: 0 }
                   : {
-                      x: isLeft ? -100 : 100, // Coming from left or right on larger screens
+                      x: isLeft ? -100 : 100,
                       opacity: 0,
                     }
               }
@@ -91,12 +91,12 @@ const Education = () => {
                 isMobile
                   ? { y: 0, opacity: 1 }
                   : {
-                      x: 0, // Reset position when in view for larger screens
+                      x: 0,
                       opacity: 1,
                     }
               }
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.3 }}
               className={`w-full flex flex-col md:flex-row items-center ${isLeft ? "md:justify-start" : "md:justify-end"
                 } relative`}
             >

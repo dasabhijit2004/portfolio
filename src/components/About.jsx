@@ -136,7 +136,7 @@ const About = () => {
     }, []);
 
     return (
-        <div className="about-container relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050414]">
+        <div className="about-container relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050414]" id='about'>
             {/* About Content */}
             <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-8 px-4 sm:px-8 md:px-16 lg:px-20 py-12 text-white w-full">
                 {/* Text Section */}

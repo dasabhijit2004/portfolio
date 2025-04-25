@@ -131,7 +131,7 @@ const Contact = () => {
   
 
   return (
-    <>
+    <div id="contact">
       <AnimatePresence>
         {toast && (
           <Toast
@@ -151,7 +151,7 @@ const Contact = () => {
         >
           {/* Left Section: Address and Contact Details */}
           <motion.div
-            className="text-white space-y-8 p-6 rounded-lg"
+            className="text-white space-y-8 p-4 sm:p-0 rounded-lg"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -186,7 +186,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Address</h3>
-                  <p className="text-slate-300">1234 Street Name, City, Country</p>
+                  <p className="text-slate-300">Adisaptagram, Hooghly, West Bengal, India - 712121</p>
                 </div>
               </motion.div>
 
@@ -200,7 +200,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Phone</h3>
-                  <p className="text-slate-300">+1 (555) 123-4567</p>
+                  <p className="text-slate-300">+91 95472 86280</p>
                 </div>
               </motion.div>
 
@@ -214,7 +214,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Email</h3>
-                  <p className="text-slate-300">contact@company.com</p>
+                  <p className="text-slate-300">sadabhijit2004@gmail.com</p>
                 </div>
               </motion.div>
             </div>
@@ -258,7 +258,7 @@ const Contact = () => {
 
           {/* Right Section: Form */}
           <motion.div
-            className="space-y-8"
+            className="space-y-8 px-4 sm:px-0"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
@@ -365,7 +365,7 @@ const Contact = () => {
           </motion.div>
         </motion.div>
       </div>
-    </>
+    </div>
   );
 };
 

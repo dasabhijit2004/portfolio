@@ -7,11 +7,16 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Education from './components/Education'
+import BackToTop from './components/BackToTop'
+import CursorDot from './components/CursorDot'
+// import LoadingSpinner from './components/LoadingSpinner'
 
 function App() {
 
   return (
     <>
+      {/* <LoadingSpinner /> */}
+      <CursorDot />
       <Navbar />
       <About />
       <Education />
@@ -19,6 +24,7 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
+      <BackToTop />
     </>
   )
 }
