@@ -125,6 +125,7 @@ const SkillProgress = ({ name, percent, color }) => {
 };
 
 // Main component for skills
+// Main component for skills
 const Skills = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -137,37 +138,37 @@ const Skills = () => {
       <div className="text-center mb-10">
         <button
           onClick={() => setSelectedCategory("All")}
-          className="px-4 py-2 bg-gray-600 rounded mr-4 mb-4 sm:mb-0 hover:bg-blue-500 transition-all duration-300"
+          className={`px-4 py-2 rounded mr-4 mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "All" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
         >
           All
         </button>
         <button
           onClick={() => setSelectedCategory("Frontend")}
-          className="px-4 py-2 bg-gray-600 rounded mr-4 mb-4 sm:mb-0 hover:bg-blue-500 transition-all duration-300"
+          className={`px-4 py-2 rounded mr-4 mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "Frontend" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
         >
           Frontend
         </button>
         <button
           onClick={() => setSelectedCategory("Backend")}
-          className="px-4 py-2 bg-gray-600 rounded mr-4 mb-4 sm:mb-0 hover:bg-blue-500 transition-all duration-300"
+          className={`px-4 py-2 rounded mr-4 mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "Backend" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
         >
           Backend
         </button>
         <button
           onClick={() => setSelectedCategory("Database")}
-          className="px-4 py-2 bg-gray-600 rounded mr-4 mb-4 sm:mb-0 hover:bg-blue-500 transition-all duration-300"
+          className={`px-4 py-2 rounded mr-4 mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "Database" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
         >
           Database
         </button>
         <button
           onClick={() => setSelectedCategory("Version Control")}
-          className="px-4 py-2 bg-gray-600 rounded mr-4 mb-4 sm:mb-0 hover:bg-blue-500 transition-all duration-300"
+          className={`px-4 py-2 rounded mr-4 mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "Version Control" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
         >
           Version Control
         </button>
         <button
           onClick={() => setSelectedCategory("Tools")}
-          className="px-4 py-2 bg-gray-600 rounded mb-4 sm:mb-0 hover:bg-blue-500 transition-all duration-300"
+          className={`px-4 py-2 rounded mb-4 sm:mb-0 transition-all duration-300 ${selectedCategory === "Tools" ? "bg-blue-500 text-white" : "bg-gray-600 hover:bg-blue-500 text-white"}`}
         >
           Tools
         </button>
@@ -186,5 +187,6 @@ const Skills = () => {
     </div>
   );
 };
+
 
 export default Skills;
