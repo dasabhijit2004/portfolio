@@ -5,7 +5,7 @@ const projectsData = [
   {
     title: "News60",
     description: "A news aggregator app that provides the latest news from various sources.",
-    image: "../public/news60.png",
+    image: "/news60.png",
     githubLink: "https://github.com/username/ecommerce-platform",
     liveDemo: "https://ecommerce-demo.example.com",
     category: "web",
@@ -19,7 +19,7 @@ const projectsData = [
   {
     title: "Career Compass",
     description: "A web application that helps users find suitable career paths based on their skills and interests.",
-    image: "../public/career_compass.png",
+    image: "/career_compass.png",
     githubLink: "https://github.com/username/ai-image-generator",
     liveDemo: "https://ai-image-gen.example.com",
     category: "ai",
@@ -33,7 +33,7 @@ const projectsData = [
   {
     title: "Bio Care",
     description: "A responsive website for teaching Biology in a modern and efficient way.",
-    image: "../public/bio_care.png",
+    image: "/bio_care.png",
     githubLink: "https://github.com/username/task-dashboard",
     liveDemo: "https://task-dashboard.example.com",
     category: "web",
@@ -47,7 +47,7 @@ const projectsData = [
   {
     title: "Code Reviewer",
     description: "An AI-powered code review tool that provides suggestions and improvements.",
-    image: "../public/code_reviewer.png",
+    image: "/code_reviewer.png",
     githubLink: "https://github.com/username/sentiment-analysis",
     liveDemo: "https://sentiment.example.com",
     category: "ai",
@@ -59,17 +59,17 @@ const projectsData = [
     }
   },
   {
-    title: "Fitness App",
-    description: "A cross-platform mobile application for tracking workouts and health metrics.",
-    image: "/api/placeholder/400/300",
+    title: "Car Price Prediction",
+    description: "A machine learning model that predicts car prices based on various features.",
+    image: "/car-price.png",
     githubLink: "https://github.com/username/fitness-app",
     liveDemo: "https://fitness-app.example.com",
-    category: "mobile",
+    category: "ai",
     featured: true,
     techStack: {
-      frontend: ["React Native", "Expo"],
-      backend: ["Node.js", "GraphQL"],
-      deployment: ["App Store", "Google Play"]
+      frontend: ["Streamlit"],
+      backend: ["Python", "Scikit-learn"],
+      deployment: ["Streamlit Cloud"]
     }
   },
   {

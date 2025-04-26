@@ -1,35 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { HashLoader } from 'react-spinners';
+import { motion } from 'framer-motion';
 
-const LoadingSpinner = ({ message = "Loading..." }) => {
-  const [dots, setDots] = useState('');
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDots(prev => prev.length >= 3 ? '' : prev + '.');
-    }, 500);
-    
-    return () => clearInterval(interval);
-  }, []);
+const SpinnerLoader = () => {
+  const welcomeText = "Welcome...";
 
   return (
-    <div className="fixed inset-0 flex flex-col justify-center items-center bg-gray-900 bg-opacity-70 z-50 backdrop-blur-sm">
-      <div className="relative">
-        {/* Outer spinner */}
-        <div className="w-20 h-20 border-4 border-blue-300 border-opacity-30 border-t-blue-500 border-solid rounded-full animate-spin"></div>
-        
-        {/* Inner spinner - spins in opposite direction */}
-        <div className="absolute top-2 left-2 w-16 h-16 border-4 border-purple-300 border-opacity-30 border-t-purple-500 border-solid rounded-full animate-spin" style={{ animationDirection: 'reverse' }}></div>
-        
-        {/* Center dot */}
-        <div className="absolute top-8 left-8 w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
-      </div>
-      
-      {/* Loading text with animated dots */}
-      <div className="mt-6 text-white text-lg font-medium">
-        {message}{dots}
-      </div>
+    <div className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-[#000f1d] text-[#dadada] font-poppins z-50">
+      <HashLoader color="#155bf2" size={50} />
+      <motion.h2 
+        className="mt-6 text-xl md:text-2xl font-semibold"
+        initial={{ opacity: 0 }}
+        animate={{ 
+          opacity: 1,
+          transition: {
+            delayChildren: 0.5,
+            staggerChildren: 0.15,
+          }
+        }}
+      >
+        {welcomeText.split("").map((char, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: index * 0.15 }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </motion.h2>
     </div>
   );
 };
 
-export default LoadingSpinner;
+export default SpinnerLoader;
