@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 // Custom SVG icons
 const MapIcon = () => (
@@ -76,6 +77,9 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState(null);
 
+  // Create a ref for the form element
+  const formRef = useRef();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -87,7 +91,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
+
     // Basic form validation
     if (!formData.name || !formData.email || !formData.message || !formData.subject) {
       setToast({
@@ -97,11 +101,23 @@ const Contact = () => {
       setIsSubmitting(false);
       return;
     }
-  
-    // Send form data using EmailJS (or another service of your choice)
+
+    // Prepare the template parameters for EmailJS
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
+
     try {
-      const response = await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_USER_ID');
-  
+      const response = await emailjs.send(
+        'service_kfsx0zj', 
+        'template_r0s9ufo',    
+        templateParams,
+        'Mi6hMNYcuf1f17YOB'      
+      );
+
       if (response.status === 200) {
         setToast({
           message: 'Your message has been sent successfully!',
@@ -119,7 +135,7 @@ const Contact = () => {
         type: 'error',
       });
     }
-  
+
     setIsSubmitting(false);
     setFormData({
       name: '',
@@ -128,7 +144,6 @@ const Contact = () => {
       subject: '',
     });
   };
-  
 
   return (
     <div id="contact">
@@ -272,13 +287,8 @@ const Contact = () => {
               Get in Touch
             </motion.h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <motion.div
-                className="space-y-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.3 }}
-              >
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              <motion.div className="space-y-2" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.3 }}>
                 <input
                   type="text"
                   id="name"
@@ -290,13 +300,7 @@ const Contact = () => {
                   className="w-full p-3 border-b-2 border-blue-600 rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm transition-all shadow-lg"
                 />
               </motion.div>
-
-              <motion.div
-                className="space-y-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.3 }}
-              >
+              <motion.div className="space-y-2" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.3 }}>
                 <input
                   type="email"
                   id="email"
@@ -308,13 +312,7 @@ const Contact = () => {
                   className="w-full p-3 border-b-2 border-blue-600 rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm transition-all shadow-lg"
                 />
               </motion.div>
-
-              <motion.div
-                className="space-y-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.3 }}
-              >
+              <motion.div className="space-y-2" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.3 }}>
                 <input
                   type="text"
                   id="subject"
@@ -326,13 +324,7 @@ const Contact = () => {
                   className="w-full p-3 border-b-2 border-blue-600 rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm transition-all shadow-lg"
                 />
               </motion.div>
-
-              <motion.div
-                className="space-y-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.3 }}
-              >
+              <motion.div className="space-y-2" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.3 }}>
                 <textarea
                   id="message"
                   name="message"
@@ -344,13 +336,7 @@ const Contact = () => {
                   rows="5"
                 />
               </motion.div>
-
-              <motion.div
-                className="flex justify-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9, duration: 0.3 }}
-              >
+              <motion.div className="flex justify-center" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.3 }}>
                 <motion.button
                   type="submit"
                   className={`w-full md:w-auto py-3 px-8 rounded-lg bg-blue-600 text-white text-lg font-semibold shadow-lg ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
