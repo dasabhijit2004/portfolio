@@ -72,20 +72,20 @@ const projectsData = [
       deployment: ["Streamlit Cloud"]
     }
   },
-  {
-    title: "AR Navigation",
-    description: "An augmented reality app for indoor navigation in complex buildings.",
-    image: "/api/placeholder/400/300",
-    githubLink: "https://github.com/username/ar-navigation",
-    liveDemo: "https://ar-nav.example.com",
-    category: "mobile",
-    featured: false,
-    techStack: {
-      frontend: ["React Native", "ARKit", "ARCore"],
-      backend: ["Python", "Django"],
-      deployment: ["App Store", "Google Play"]
-    }
-  }
+  // {
+  //   title: "AR Navigation",
+  //   description: "An augmented reality app for indoor navigation in complex buildings.",
+  //   image: "/api/placeholder/400/300",
+  //   githubLink: "https://github.com/username/ar-navigation",
+  //   liveDemo: "https://ar-nav.example.com",
+  //   category: "mobile",
+  //   featured: false,
+  //   techStack: {
+  //     frontend: ["React Native", "ARKit", "ARCore"],
+  //     backend: ["Python", "Django"],
+  //     deployment: ["App Store", "Google Play"]
+  //   }
+  // }
 ];
 
 const Projects = () => {
@@ -101,7 +101,7 @@ const Projects = () => {
     { id: "all", label: "All Projects" },
     { id: "web", label: "Web Development" },
     { id: "ai", label: "AI/ML" },
-    { id: "mobile", label: "Mobile" }
+    // { id: "mobile", label: "Mobile" }
   ];
 
   useEffect(() => {
@@ -163,7 +163,7 @@ const Projects = () => {
     switch (category) {
       case 'web': return 'Web Development';
       case 'ai': return 'AI/ML';
-      case 'mobile': return 'Mobile';
+      // case 'mobile': return 'Mobile';
       default: return category;
     }
   };
