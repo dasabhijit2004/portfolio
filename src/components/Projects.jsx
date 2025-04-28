@@ -181,8 +181,8 @@ const Projects = () => {
             key={category.id}
             onClick={() => setFilter(category.id)}
             className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${filter === category.id
-                ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
-                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
+              : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
               }`}
           >
             {category.label}
@@ -295,6 +295,24 @@ const Projects = () => {
                 alt={selectedProject.title}
                 className="w-full h-64 object-cover rounded-lg"
               />
+            </div>
+
+            <div className="mb-4">
+              <h4 className="text-lg font-semibold mb-2">Tech Stack:</h4>
+              <div className="flex flex-wrap gap-2">
+                {Object.entries(selectedProject.techStack).map(([category, techs], idx) => (
+                  <div key={idx} className="flex flex-col">
+                    <span className="text-sm font-medium capitalize text-gray-400">{category}</span>
+                    <div className="flex flex-wrap gap-2 mt-1">
+                      {techs.map((tech, index) => (
+                        <span key={index} className="text-xs px-2 py-1 bg-gray-700 text-gray-300 rounded-full">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="flex justify-between items-center">
