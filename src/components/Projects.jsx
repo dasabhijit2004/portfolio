@@ -3,25 +3,11 @@ import { Github, ExternalLink, X, ChevronLeft, ChevronRight } from 'lucide-react
 
 const projectsData = [
   {
-    title: "News60",
-    description: "A news aggregator app that provides the latest news from various sources.",
-    image: "/news60.png",
-    githubLink: "https://github.com/username/ecommerce-platform",
-    liveDemo: "https://ecommerce-demo.example.com",
-    category: "web",
-    featured: true,
-    techStack: {
-      frontend: ["React", "Tailwind CSS"],
-      backend: ["Node.js", "Express", "Firebase"],
-      deployment: ["Vercel", "Render"]
-    }
-  },
-  {
     title: "Career Compass",
     description: "A web application that helps users find suitable career paths based on their skills and interests.",
     image: "/career_compass.png",
-    githubLink: "https://github.com/username/ai-image-generator",
-    liveDemo: "https://ai-image-gen.example.com",
+    githubLink: "https://github.com/dasabhijit2004/career-compass",
+    liveDemo: "https://career-compass-chi.vercel.app/",
     category: "ai",
     featured: true,
     techStack: {
@@ -34,8 +20,8 @@ const projectsData = [
     title: "Bio Care",
     description: "A responsive website for teaching Biology in a modern and efficient way.",
     image: "/bio_care.png",
-    githubLink: "https://github.com/username/task-dashboard",
-    liveDemo: "https://task-dashboard.example.com",
+    githubLink: "https://github.com/dasabhijit2004/bio-care",
+    liveDemo: "https://bio-care-one.vercel.app/",
     category: "web",
     featured: false,
     techStack: {
@@ -48,8 +34,8 @@ const projectsData = [
     title: "Code Reviewer",
     description: "An AI-powered code review tool that provides suggestions and improvements.",
     image: "/code_reviewer.png",
-    githubLink: "https://github.com/username/sentiment-analysis",
-    liveDemo: "https://sentiment.example.com",
+    githubLink: "https://github.com/dasabhijit2004/code-reviewer",
+    liveDemo: "https://code-reviewer-lemon.vercel.app/",
     category: "ai",
     featured: false,
     techStack: {
@@ -62,14 +48,28 @@ const projectsData = [
     title: "Car Price Prediction",
     description: "A machine learning model that predicts car prices based on various features.",
     image: "/car-price.png",
-    githubLink: "https://github.com/username/fitness-app",
-    liveDemo: "https://fitness-app.example.com",
+    githubLink: "https://github.com/dasabhijit2004/car-price-prediction",
+    liveDemo: "https://car-price-prediction-ad.streamlit.app/",
     category: "ai",
     featured: true,
     techStack: {
       frontend: ["Streamlit"],
       backend: ["Python", "Scikit-learn"],
       deployment: ["Streamlit Cloud"]
+    }
+  },
+  {
+    title: "News60",
+    description: "A news aggregator app that provides the latest news from various sources.",
+    image: "/news60.png",
+    githubLink: "https://github.com/abhraneel2004/binary_halfbyte",
+    liveDemo: "https://binary-halfbyte.vercel.app/",
+    category: "web",
+    featured: true,
+    techStack: {
+      frontend: ["React", "Tailwind CSS"],
+      backend: ["Node.js", "Express", "Firebase"],
+      deployment: ["Vercel", "Render"]
     }
   },
   // {
