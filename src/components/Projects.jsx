@@ -95,6 +95,7 @@ const Projects = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [modalAnimation, setModalAnimation] = useState(false);
   const scrollContainerRef = useRef(null);
 
   const categories = [
@@ -122,6 +123,23 @@ const Projects = () => {
 
   useEffect(() => {
     setVisibleProjects(projectsData);
+    
+    // Add touch scrolling instructions for mobile
+    const container = scrollContainerRef.current;
+    if (container && window.innerWidth < 768) {
+      setTimeout(() => {
+        const instruction = document.createElement('div');
+        instruction.className = 'text-gray-400 text-xs text-center mb-2 md:hidden';
+        instruction.innerText = 'Swipe to see more projects';
+        container.parentNode.insertBefore(instruction, container);
+        
+        setTimeout(() => {
+          instruction.style.opacity = '0';
+          instruction.style.transition = 'opacity 1s ease-out';
+          setTimeout(() => instruction.remove(), 1000);
+        }, 3000);
+      }, 500);
+    }
   }, []);
 
   const checkScrollPosition = () => {
@@ -144,11 +162,19 @@ const Projects = () => {
   const handleClick = (project) => {
     setSelectedProject(project);
     document.body.style.overflow = 'hidden';
+    // Trigger modal animation after a short delay
+    setTimeout(() => {
+      setModalAnimation(true);
+    }, 10);
   };
 
   const closeModal = () => {
-    setSelectedProject(null);
-    document.body.style.overflow = 'auto';
+    setModalAnimation(false);
+    // Add delay before fully removing modal to allow for close animation
+    setTimeout(() => {
+      setSelectedProject(null);
+      document.body.style.overflow = 'auto';
+    }, 300);
   };
 
   const scrollLeft = () => {
@@ -158,6 +184,21 @@ const Projects = () => {
   const scrollRight = () => {
     scrollContainerRef.current?.scrollBy({ left: 300, behavior: 'smooth' });
   };
+  
+  // Add smooth-scroll behavior to the projects container
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      // Add smooth momentum scroll on mobile
+      container.style.WebkitOverflowScrolling = 'touch';
+      
+      // Add scroll snap on mobile
+      if (window.innerWidth < 768) {
+        container.style.scrollSnapType = 'x mandatory';
+        container.style.scrollPadding = '0 16px';
+      }
+    }
+  }, []);
 
   const getCategoryLabel = (category) => {
     switch (category) {
@@ -169,7 +210,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="py-10 px-4 md:px-20 relative" id="projects">
+    <div className="py-10 px-2 md:px-20 relative" id="projects">
       <div className="max-w-6xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-bold text-white">My Projects</h2>
         <p className="text-sm text-gray-400 mt-2">A showcase of my technical skills and creative problem-solving</p>
@@ -191,11 +232,11 @@ const Projects = () => {
       </div>
 
       <div className="relative">
-        <div className="hidden md:block">
+        <div>
           {canScrollLeft && (
             <button
               onClick={scrollLeft}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-10 bg-gray-800 rounded-full p-2 text-white hover:bg-gray-700 transition-colors shadow-lg"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -ml-1 md:-ml-4 z-10 bg-gray-800 rounded-full p-2 text-white hover:bg-gray-700 transition-colors shadow-lg"
               aria-label="Scroll left"
             >
               <ChevronLeft size={20} />
@@ -204,7 +245,7 @@ const Projects = () => {
           {canScrollRight && (
             <button
               onClick={scrollRight}
-              className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-10 bg-gray-800 rounded-full p-2 text-white hover:bg-gray-700 transition-colors shadow-lg"
+              className="absolute right-0 top-1/2 -translate-y-1/2 -mr-1 md:-mr-4 z-10 bg-gray-800 rounded-full p-2 text-white hover:bg-gray-700 transition-colors shadow-lg"
               aria-label="Scroll right"
             >
               <ChevronRight size={20} />
@@ -214,13 +255,13 @@ const Projects = () => {
 
         <div
           ref={scrollContainerRef}
-          className={`md:flex md:space-x-4 md:overflow-x-auto md:pb-4 md:snap-x md:snap-mandatory grid grid-cols-1 sm:grid-cols-2 gap-4 transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'} scrollbar-none`}
+          className={`flex space-x-4 overflow-x-auto pb-4 snap-x snap-mandatory transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'} scrollbar-none`}
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {visibleProjects.map((project, index) => (
             <div
               key={index}
-              className="group bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 md:min-w-[280px] md:max-w-[280px] md:snap-start flex flex-col"
+              className="group bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 min-w-[280px] max-w-[280px] snap-start flex flex-col"
               onClick={() => handleClick(project)}
             >
               <div className="relative h-40 overflow-hidden">
@@ -276,12 +317,18 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Modal with animation */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4">
-          <div className="bg-gray-800 rounded-lg p-6 relative max-w-2xl w-full text-white">
+        <div 
+          className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out flex justify-center items-center z-50 p-4 ${modalAnimation ? 'bg-opacity-50' : 'bg-opacity-0'}`}
+          onClick={closeModal}
+        >
+          <div 
+            className={`bg-gray-800 rounded-lg p-6 relative max-w-2xl w-full text-white transition-all duration-300 ease-in-out ${modalAnimation ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'}`}
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
-              className="absolute top-3 right-3 text-gray-400 hover:text-gray-100"
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-100 transition-colors"
               onClick={closeModal}
             >
               <X size={24} />

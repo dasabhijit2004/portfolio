@@ -344,7 +344,7 @@ const Contact = () => {
                   whileHover={{ scale: 1.05, backgroundColor: "#2563EB" }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Send Message'}
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </motion.button>
               </motion.div>
             </form>
