@@ -72,20 +72,21 @@ const projectsData = [
       deployment: ["Vercel", "Render"]
     }
   },
-  // {
-  //   title: "AR Navigation",
-  //   description: "An augmented reality app for indoor navigation in complex buildings.",
-  //   image: "/api/placeholder/400/300",
-  //   githubLink: "https://github.com/username/ar-navigation",
-  //   liveDemo: "https://ar-nav.example.com",
-  //   category: "mobile",
-  //   featured: false,
-  //   techStack: {
-  //     frontend: ["React Native", "ARKit", "ARCore"],
-  //     backend: ["Python", "Django"],
-  //     deployment: ["App Store", "Google Play"]
-  //   }
-  // }
+  {
+    title: "Posture",
+    description: "A deep learning model based website that captures your postures.",
+    image: "/postrue.png",
+    githubLink: "https://github.com/dasabhijit2004/posetrue",
+    liveDemo: "https://posetrue.netlify.app",
+    category: "ai",
+    featured: true,
+    techStack: {
+      frontend: ["html"],
+      backend: ["p5.js", "ml5.js"],
+      ai: ["PoseNet"], 
+      deployment: ["Netlify"]
+    }
+  },
 ];
 
 const Projects = () => {
