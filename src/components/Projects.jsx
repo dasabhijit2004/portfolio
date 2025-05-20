@@ -87,6 +87,21 @@ const projectsData = [
       deployment: ["Netlify"]
     }
   },
+  {
+    title: "Blog Website",
+    description: "A MERN Stck based website that can be used to create and maintain blogs on vaious topics.",
+    image: "/blogs.png",
+    githubLink: "https://github.com/dasabhijit2004/blog-website",
+    liveDemo: "https://blog-website-lovat-rho.vercel.app/",
+    category: "web",
+    featured: true,
+    techStack: {
+      frontend: ["React", "Material UI"],
+      backend: ["Express"],
+      database: ["MongoDB"], 
+      deployment: ["Vercel", "Render"]
+    }
+  },
 ];
 
 const Projects = () => {
