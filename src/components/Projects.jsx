@@ -75,7 +75,7 @@ const projectsData = [
   {
     title: "Poseture",
     description: "A deep learning model based website that captures your postures.",
-    image: "/postrue.avif",
+    image: "/posetrue.avif",
     githubLink: "https://github.com/dasabhijit2004/posetrue",
     liveDemo: "https://posetrue.netlify.app",
     category: "ai",
