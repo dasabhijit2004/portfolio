@@ -238,7 +238,7 @@ const Contact = () => {
               <h3 className="text-xl font-semibold mb-4">Connect with us</h3>
               <div className="flex space-x-4">
                 <motion.a
-                  href="#"
+                  href="https://www.facebook.com/abhijit.das.803722"
                   className="bg-blue-600 p-3 rounded-full shadow-lg"
                   whileHover={{
                     scale: 1.15,
@@ -248,7 +248,7 @@ const Contact = () => {
                   <FacebookIcon />
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="https://x.com/AbhijitDas2893"
                   className="bg-blue-600 p-3 rounded-full shadow-lg"
                   whileHover={{
                     scale: 1.15,
@@ -258,7 +258,7 @@ const Contact = () => {
                   <TwitterIcon />
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="https://www.instagram.com/abhijit_das_006/"
                   className="bg-blue-600 p-3 rounded-full shadow-lg"
                   whileHover={{
                     scale: 1.15,

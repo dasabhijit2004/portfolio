@@ -79,7 +79,7 @@ const Footer = () => {
           <h3 className="text-xl font-semibold mb-6 text-white">Connect with me</h3>
           <div className="flex justify-center md:justify-end space-x-8 text-gray-400 text-2xl">
             <a
-              href="https://www.linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/abhijit-das-35b72224a/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -88,7 +88,7 @@ const Footer = () => {
               <i className="fab fa-linkedin-in" />
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/dasabhijit2004"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -97,7 +97,7 @@ const Footer = () => {
               <i className="fab fa-github" />
             </a>
             <a
-              href="https://twitter.com/yourhandle"
+              href="https://x.com/AbhijitDas2893"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
@@ -106,7 +106,7 @@ const Footer = () => {
               <i className="fab fa-twitter" />
             </a>
             <a
-              href="https://www.instagram.com/yourhandle"
+              href="https://www.instagram.com/abhijit_das_006"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
