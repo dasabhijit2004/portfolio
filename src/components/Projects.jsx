@@ -5,7 +5,7 @@ const projectsData = [
   {
     title: "Career Compass",
     description: "A web application that helps users find suitable career paths based on their skills and interests.",
-    image: "/career_compass.png",
+    image: "/career_compass.avif",
     githubLink: "https://github.com/dasabhijit2004/career-compass",
     liveDemo: "https://career-compass-chi.vercel.app/",
     category: "ai",
@@ -19,7 +19,7 @@ const projectsData = [
   {
     title: "Bio Care",
     description: "A responsive website for teaching Biology in a modern and efficient way.",
-    image: "/bio_care.png",
+    image: "/bio_care.avif",
     githubLink: "https://github.com/dasabhijit2004/bio-care",
     liveDemo: "https://bio-care-one.vercel.app/",
     category: "web",
@@ -33,7 +33,7 @@ const projectsData = [
   {
     title: "Code Reviewer",
     description: "An AI-powered code review tool that provides suggestions and improvements.",
-    image: "/code_reviewer.png",
+    image: "/code_reviewer.avif",
     githubLink: "https://github.com/dasabhijit2004/code-reviewer",
     liveDemo: "https://code-reviewer-lemon.vercel.app/",
     category: "ai",
@@ -47,7 +47,7 @@ const projectsData = [
   {
     title: "Car Price Prediction",
     description: "A machine learning model that predicts car prices based on various features.",
-    image: "/car-price.png",
+    image: "/car-price.avif",
     githubLink: "https://github.com/dasabhijit2004/car-price-prediction",
     liveDemo: "https://car-price-prediction-ad.streamlit.app/",
     category: "ai",
@@ -61,7 +61,7 @@ const projectsData = [
   {
     title: "News60",
     description: "A news aggregator app that provides the latest news from various sources.",
-    image: "/news60.png",
+    image: "/news60.avif",
     githubLink: "https://github.com/abhraneel2004/binary_halfbyte",
     liveDemo: "https://binary-halfbyte.vercel.app/",
     category: "web",
@@ -90,7 +90,7 @@ const projectsData = [
   {
     title: "Blog Website",
     description: "A MERN Stck based website that can be used to create and maintain blogs on vaious topics.",
-    image: "/blogs.png",
+    image: "/blogs.avif",
     githubLink: "https://github.com/dasabhijit2004/blog-website",
     liveDemo: "https://blog-website-lovat-rho.vercel.app/",
     category: "web",
