@@ -148,7 +148,7 @@ const Skills = () => {
                 : "bg-[#2c2c4a] text-sm text-gray-400 hover:bg-blue-600 hover:shadow-md hover:scale-105"}
             `}
           >
-            {category === "All" ? "All Projects" : category}
+            {category === "All" ? "All Skills" : category}
           </button>
         ))}
       </div>

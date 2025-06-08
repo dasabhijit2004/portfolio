@@ -188,7 +188,7 @@ const About = () => {
                     transition={{ duration: 1 }}
                 >
                     <img
-                        src="./photo.png"
+                        src="./photo.avif"
                         alt="Abhijit Das"
                         className="w-[500px] sm:w-[600px] md:w-[700px] object-contain rounded-full shadow-md shadow-blue-400 transform scale-x-[-1] my-5"
                     />
