@@ -97,13 +97,13 @@ const Footer = () => {
               <i className="fab fa-github" />
             </a>
             <a
-              href="https://x.com/AbhijitDas2893"
+              href="https://www.facebook.com/abhijit.das.803722"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Twitter"
+              aria-label="Facebook"
               className="hover:text-blue-400 transition-colors"
             >
-              <i className="fab fa-twitter" />
+              <i className="fab fa-facebook" />
             </a>
             <a
               href="https://www.instagram.com/abhijit_das_006"
