@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Logo & Contact Info */}
         <div className="text-center md:text-left max-w-md mx-auto md:mx-0">
-          <h2 className="text-3xl font-bold text-blue-500 mb-4">MyPortfolio</h2>
+          <h2 className="text-3xl font-bold text-blue-500 mb-4">Abhijit.</h2>
           <p className="text-gray-400 leading-relaxed mb-6">
             Passionate developer crafting elegant solutions with clean code and modern design.
           </p>
@@ -120,7 +120,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm select-none">
-        &copy; {new Date().getFullYear()} MyPortfolio. All rights reserved.
+        &copy; {new Date().getFullYear()} Abhijit. All rights reserved.
       </div>
     </footer>
   );

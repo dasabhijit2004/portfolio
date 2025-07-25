@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const About = () => {
-    const roles = ["Web Developer", "UI/UX Designer", "AI/ML Enthusiast", "Problem Solver"];
+    const roles = ["Web Developer", "AI/ML Enthusiast", "Problem Solver"];
     const [text, setText] = useState('');
     const [roleIndex, setRoleIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);

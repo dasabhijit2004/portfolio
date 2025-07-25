@@ -339,7 +339,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Write your message here..."
-                  className="w-full p-3 border-b-2 border-blue-600 rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm transition-all shadow-lg min-h-32"
+                  className="w-full p-3 border-b-2 border-blue-600 rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm transition-all shadow-lg min-h-32 max-h-56"
                   rows="5"
                 />
               </motion.div>

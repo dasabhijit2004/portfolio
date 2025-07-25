@@ -42,24 +42,24 @@ const iconMap = {
 const skills = [
   { name: "HTML", color: "#E34F26", percent: 85, category: "Frontend" },
   { name: "CSS", color: "#1572B6", percent: 80, category: "Frontend" },
-  { name: "JavaScript", color: "#F7DF1E", percent: 82, category: "Frontend" },
+  { name: "JavaScript", color: "#F7DF1E", percent: 82, category: "Languages" },
   { name: "React", color: "#61DAFB", percent: 78, category: "Frontend" },
   { name: "NodeJS", color: "#539E43", percent: 75, category: "Backend" },
   { name: "ExpressJS", color: "#fafafa", percent: 72, category: "Backend" },
   { name: "MongoDB", color: "#47A248", percent: 77, category: "Database" },
   { name: "Firebase", color: "#FFCA28", percent: 70, category: "Backend" },
   { name: "SQL", color: "#00758F", percent: 65, category: "Database" },
-  { name: "Python", color: "#3776AB", percent: 79, category: "Backend" },
-  { name: "Java", color: "#007396", percent: 80, category: "Backend" },
-  { name: "C", color: "#A8B9CC", percent: 70, category: "Backend" },
-  { name: "C++", color: "#00599C", percent: 75, category: "Backend" },
+  { name: "Python", color: "#3776AB", percent: 79, category: "Languages" },
+  { name: "Java", color: "#007396", percent: 80, category: "Languages" },
+  { name: "C", color: "#A8B9CC", percent: 70, category: "Languages" },
+  { name: "C++", color: "#00599C", percent: 75, category: "Languages" },
   { name: "Vercel", color: "#fafafa", percent: 80, category: "Tools" },
   { name: "Bootstrap", color: "#7952B3", percent: 79, category: "Frontend" },
   { name: "Tailwind", color: "#38B2AC", percent: 80, category: "Frontend" },
   { name: "Figma", color: "#F24E1E", percent: 70, category: "Tools" },
   { name: "Adobe", color: "#FF0000", percent: 66, category: "Tools" },
-  { name: "Git", color: "#F1502F", percent: 75, category: "Version Control" },
-  { name: "GitHub", color: "#fafafa", percent: 77, category: "Version Control" },
+  { name: "Git", color: "#F1502F", percent: 75, category: "Tools" },
+  { name: "GitHub", color: "#fafafa", percent: 77, category: "Tools" },
   { name: "Postman", color: "#FF6C37", percent: 70, category: "Tools" },
   { name: "Netlify", color: "#61DAFB", percent: 80, category: "Tools" },
   { name: "Render", color: "#fafafa", percent: 65, category: "Tools" }
@@ -90,14 +90,24 @@ const SkillProgress = ({ name, percent, color }) => {
 
   useEffect(() => {
     if (isVisible) {
+      // Animate the progress bar value
+      const animationDuration = 800; // Total duration in ms
+      const framesPerSecond = 60;
+      const totalFrames = (animationDuration / 1000) * framesPerSecond;
+      const increment = percent / totalFrames;
       let current = 0;
-      const interval = setInterval(() => {
-        current += 1;
-        if (current > percent) {
-          clearInterval(interval);
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= percent) {
+          setValue(percent);
+          clearInterval(timer);
+        } else {
+          setValue(Math.floor(current));
         }
-        setValue(current);
-      }, 10);
+      }, 1000 / framesPerSecond);
+
+      return () => clearInterval(timer);
     }
   }, [isVisible, percent]);
 
@@ -105,6 +115,7 @@ const SkillProgress = ({ name, percent, color }) => {
     <div
       className="flex flex-col items-center space-y-2 transform transition-all duration-500 ease-out opacity-0 animate-fade-slide-up"
       ref={skillRef}
+      style={{ animationDelay: '100ms' }} // Staggered animation
     >
       <div className="w-20 h-20 bg-[#111132] rounded-full shadow-lg p-2">
         <CircularProgressbarWithChildren
@@ -112,6 +123,7 @@ const SkillProgress = ({ name, percent, color }) => {
           styles={buildStyles({
             pathColor: color,
             trailColor: "#2c2c4a",
+            pathTransitionDuration: 0.15,
           })}
         >
           <div className="text-2xl" style={{ color }}>
@@ -125,20 +137,25 @@ const SkillProgress = ({ name, percent, color }) => {
   );
 };
 
+
 // Main component for skills
 const Skills = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  // Define categories, removing "All"
+  const categories = ["Languages", "Frontend", "Backend", "Database", "Tools"];
+  
+  // Set the initial category to the first one in the list
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
-  // Filter skills based on selected category
-  const filteredSkills = selectedCategory === "All" ? skills : skills.filter(skill => skill.category === selectedCategory);
+  // Filter skills based on the selected category
+  const filteredSkills = skills.filter(skill => skill.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#050414] text-white px-4 py-20" id="skills">
+    <div className="bg-[#050414] text-white px-4 py-20" id="skills">
       <h2 className="text-4xl font-bold text-center mb-16">My Skills</h2>
 
       {/* Category Buttons */}
       <div className="flex flex-wrap justify-center gap-3 mb-8">
-        {["All", "Frontend", "Backend", "Database", "Version Control", "Tools"].map((category) => (
+        {categories.map((category) => (
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
@@ -148,7 +165,7 @@ const Skills = () => {
                 : "bg-[#2c2c4a] text-sm text-gray-400 hover:bg-blue-600 hover:shadow-md hover:scale-105"}
             `}
           >
-            {category === "All" ? "All Skills" : category}
+            {category}
           </button>
         ))}
       </div>
@@ -157,7 +174,7 @@ const Skills = () => {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 justify-center transition-all duration-700">
         {filteredSkills.map((skill, index) => (
           <SkillProgress
-            key={index}
+            key={`${selectedCategory}-${index}`} // Add key for re-rendering on filter change
             name={skill.name}
             percent={skill.percent}
             color={skill.color}

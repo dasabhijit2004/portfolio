@@ -226,7 +226,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="py-10 px-2 md:px-20 relative" id="projects">
+    <div className="py-10 px-2 md:px-20 relative" id="projects" style={{ scrollMarginTop: '80px' }}>
       <div className="max-w-6xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-bold text-white">My Projects</h2>
         <p className="text-sm text-gray-400 mt-2">A showcase of my technical skills and creative problem-solving</p>
