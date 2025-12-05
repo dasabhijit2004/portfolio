@@ -7,7 +7,8 @@ import {
   SiHtml5, SiCss3, SiJavascript, SiReact, SiNodedotjs, SiExpress, SiMongodb,
   SiFirebase, SiMysql, SiPython, SiC, SiCplusplus, SiVercel,
   SiBootstrap, SiTailwindcss, SiFigma, SiAdobe, SiGit, SiGithub, SiPostman,
-  SiNetlify, SiRender
+  SiNetlify, SiRender,
+  SiNextdotjs
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
@@ -17,6 +18,7 @@ const iconMap = {
   CSS: <SiCss3 />,
   JavaScript: <SiJavascript />,
   React: <SiReact />,
+  Next: <SiNextdotjs />,
   NodeJS: <SiNodedotjs />,
   ExpressJS: <SiExpress />,
   MongoDB: <SiMongodb />,
@@ -44,6 +46,7 @@ const skills = [
   { name: "CSS", color: "#1572B6", percent: 80, category: "Frontend" },
   { name: "JavaScript", color: "#F7DF1E", percent: 82, category: "Languages" },
   { name: "React", color: "#61DAFB", percent: 78, category: "Frontend" },
+  { name: "Next", color: "#61DAFB", percent: 63, category: "Frontend" },
   { name: "NodeJS", color: "#539E43", percent: 75, category: "Backend" },
   { name: "ExpressJS", color: "#fafafa", percent: 72, category: "Backend" },
   { name: "MongoDB", color: "#47A248", percent: 77, category: "Database" },

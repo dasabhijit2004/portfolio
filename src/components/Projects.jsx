@@ -20,14 +20,14 @@ const projectsData = [
     title: "Bio Care",
     description: "A responsive website for teaching Biology in a modern and efficient way.",
     image: "/bio_care.avif",
-    githubLink: "https://github.com/dasabhijit2004/bio-care",
-    liveDemo: "https://bio-care-one.vercel.app/",
+    githubLink: "https://github.com/dasabhijit2004/bio-care-2026",
+    liveDemo: "https://bio-care-2026.vercel.app/",
     category: "web",
     featured: false,
     techStack: {
-      frontend: ["HTML", "CSS"],
-      backend: ["Express", "MongoDB"],
-      deployment: ["Vercel", "Render"]
+      frontend: ["NextJS", "Tailwind CSS"],
+      backend: ["MongoDB"],
+      deployment: ["Vercel"]
     }
   },
   {
